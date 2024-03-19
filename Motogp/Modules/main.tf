@@ -31,7 +31,8 @@ terraform {
 
 module "vpc" {
   source = "./vpc"
-  cidr_block_vpc = "172.16.0.0/16"
+  cidr_block =  var.cidr_block_vpc
+  
   cidr_block_private_subnet = "172.16.0.1/26"
   cidr_block_public_subnet = "172.16.0.0/26"
   vpc_name = "My_Terraform_vpc"
