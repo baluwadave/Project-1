@@ -94,7 +94,7 @@ module "aws_security_group" {
 
 
 module "Loadbalncer" {
-  source = "./modules/Loadbalncer"
+  source = "./Loadbalncer"
   load_balancer_name = "Terraform-load-balancer"
   vpc_id = module.vpc.id
   subnets = ["module.vpc.Terraform_public_subnet.id","module.vpc.Terraform_private_subnet.id"]
@@ -102,7 +102,7 @@ module "Loadbalncer" {
 }
 
 module "aws_instance" {
-  source = "./modules/Ec2_insatnce"
+  source = "./Ec2_insatnce"
   instance_cocount = var.instance_count
   ami = var.image_id
   instance_type = var.instance_type
@@ -116,5 +116,5 @@ module "aws_instance" {
 
 
 module "aws_s3_bucket" {
-  source = "./modules/s3"
+  source = "./s3"
 }
