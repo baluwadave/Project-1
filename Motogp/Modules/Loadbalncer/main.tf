@@ -1,7 +1,5 @@
-
-
 # Create ALB
-resource "aws_lb" "example" {
+resource "aws_lb" "My_load_Balancer" {
   name               = var.load_balancer_name
   internal           = false
   load_balancer_type = "application"
