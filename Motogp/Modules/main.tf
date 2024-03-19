@@ -29,13 +29,22 @@ terraform {
 
 
 
-module "my_vpc_module" {
-  source = "./Modules/Vpc"
-  project = var.project
-  vpc_cidr = var.vpc_cidr
-  enviorment = var.enviorment
-  private_subnet_cidr = var.private_subnet_cidr
-  public_subnet_cidr = var.public_subnet_cidr
+module "vpc" {
+  source = "./vpc"
+  cidr_block_vpc = "172.16.0.0/16"
+  cidr_block_private_subnet = "172.16.0.1/26"
+  cidr_block_public_subnet = "172.16.0.0/26"
+  vpc_name = "My_Terraform_vpc"
+  public_subnet_name = "Terraform_public_subnet"
+  private_subnet_name = "Terraform_private_subnet"
+  my_public_rt_name = "Terraform_public_rt"
+  my_private_rt_name = "Terraform_private_rt"
+  my_igw_name = "Terraform_igw"
+  # project = var.project
+  # vpc_cidr = var.vpc_cidr
+  # enviorment = var.enviorment
+  # private_subnet_cidr = var.private_subnet_cidr
+  # public_subnet_cidr = var.public_subnet_cidr
 }
 
 
