@@ -30,7 +30,7 @@ terraform {
 
 
 module "my_vpc_module" {
-  source = "./Vpc"
+  source = "./Modules/Vpc"
   project = var.project
   vpc_cidr = var.vpc_cidr
   enviorment = var.enviorment
@@ -40,7 +40,7 @@ module "my_vpc_module" {
 
 
 module "My_security_group" {
-  source = "./sg-Terraform"
+  source = "./Modules/sg-Terraform"
   security_group_name = "Terraform_sg"
   vpc_id = module.vpc.vpc_id
   ingress_rules = [ {
@@ -90,9 +90,6 @@ module "MyLoadBalancer" {
   vpc_id = module.vpc.id
   subnets = ["module.vpc.Terraform_public_subnet.id","module.vpc.Terraform_private_subnet.id"]
   security_groups = ["module.Terraform_sg.id","default"]
-
-
-  
 }
 
 module "My_instances" {
