@@ -84,8 +84,8 @@ module "My_security_group" {
 }
 
 
-module "MyLoadBalancer" {
-  source = "./Loadbalncer"
+module "My_load_Balancer" {
+  source = "./Modules/Loadbalncer"
   load_balancer_name = "Terraform-load-balancer"
   vpc_id = module.vpc.id
   subnets = ["module.vpc.Terraform_public_subnet.id","module.vpc.Terraform_private_subnet.id"]
