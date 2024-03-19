@@ -30,7 +30,7 @@ terraform {
 
 
 module "vpc" {
-  source = "./modules/vpc"
+  source = "./vpc"
   cidr_block_vpc = "172.16.0.0/16"
   cidr_block_private_subnet = "172.16.0.1/26"
   cidr_block_public_subnet = "172.16.0.0/26"
@@ -49,7 +49,7 @@ module "vpc" {
 
 
 module "aws_security_group" {
-  source = "./modules/sg-Terraform"
+  source = "./sg-Terraform"
   security_group_name = "Terraform_sg"
   vpc_id = module.vpc.vpc_id
   ingress_rules = [ {
