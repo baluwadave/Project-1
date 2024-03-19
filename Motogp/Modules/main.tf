@@ -93,7 +93,7 @@ module "MyLoadBalancer" {
 }
 
 module "My_instances" {
-  source = "./modules/instance"
+  source = "./Modules/Ec2_insatnce"
   instance_cocount = var.instance_count
   ami = var.image_id
   instance_type = var.instance_type
