@@ -30,7 +30,7 @@ terraform {
 
 
 module "my_vpc_module" {
-  source = "./Modules/Vpc"
+  source = "./Vpc"
   project = var.project
   vpc_cidr = var.vpc_cidr
   enviorment = var.enviorment
