@@ -30,7 +30,7 @@ terraform {
 
 
 module "vpc" {
-  source = "./vpc"
+  source = "./modules/vpc"
   cidr_block_vpc = "172.16.0.0/16"
   cidr_block_private_subnet = "172.16.0.1/26"
   cidr_block_public_subnet = "172.16.0.0/26"
@@ -48,8 +48,8 @@ module "vpc" {
 }
 
 
-module "My_security_group" {
-  source = "./Modules/sg-Terraform"
+module "aws_security_group" {
+  source = "./modules/sg-Terraform"
   security_group_name = "Terraform_sg"
   vpc_id = module.vpc.vpc_id
   ingress_rules = [ {
@@ -93,16 +93,16 @@ module "My_security_group" {
 }
 
 
-module "My_load_Balancer" {
-  source = "./Modules/Loadbalncer"
+module "Loadbalncer" {
+  source = "./modules/Loadbalncer"
   load_balancer_name = "Terraform-load-balancer"
   vpc_id = module.vpc.id
   subnets = ["module.vpc.Terraform_public_subnet.id","module.vpc.Terraform_private_subnet.id"]
   security_groups = ["module.Terraform_sg.id","default"]
 }
 
-module "My_instances" {
-  source = "./Modules/Ec2_insatnce"
+module "aws_instance" {
+  source = "./modules/Ec2_insatnce"
   instance_cocount = var.instance_count
   ami = var.image_id
   instance_type = var.instance_type
@@ -115,6 +115,6 @@ module "My_instances" {
 
 
 
-module "my_bucket" {
-  source = "./Modules/s3"
+module "aws_s3_bucket" {
+  source = "./modules/s3"
 }
