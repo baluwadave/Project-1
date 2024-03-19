@@ -1,4 +1,4 @@
-resource "aws_s3_bucket" "www_bucket" {
+resource "aws_s3_bucket" "my_bucket" {
   bucket = "baluaws1"
 
 #   tags = var.common_tags
