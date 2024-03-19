@@ -39,7 +39,7 @@ module "my_vpc_module" {
 }
 
 
-module "aws_security_group" {
+module "My_security_group" {
   source = "./sg-Terraform"
   security_group_name = "Terraform_sg"
   vpc_id = module.vpc.vpc_id
@@ -95,7 +95,7 @@ module "MyLoadBalancer" {
   
 }
 
-module "my_instance" {
+module "My_instances" {
   source = "./modules/instance"
   instance_cocount = var.instance_count
   ami = var.image_id

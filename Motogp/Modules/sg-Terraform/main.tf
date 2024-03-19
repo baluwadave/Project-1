@@ -1,5 +1,5 @@
 # Create security group
-resource "aws_security_group" "MY_security_group" {
+resource "aws_security_group" "My_security_group" {
   name        = var.security_group_name
   description = "Security group created with Terraform"
   vpc_id      = var.vpc_id
